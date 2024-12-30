@@ -11,4 +11,4 @@ app.get('/serverError',(req,res)=>{
     res.status(500).send('server error');
 });
 
-app.listen(3000,()=>console.log('server running on port 3000'));
+app.listen(config.get('server.port'),()=>console.log(`server is running on port ${config.get('server.port')}`));
