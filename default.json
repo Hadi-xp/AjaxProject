@@ -1,5 +1,6 @@
 {
     "server":{
-        "host":"https://hadi-xp.github.io"
+        "host":"https://hadi-xp.github.io/AjaxProject/",
+        "port":"3000"
     }
 }

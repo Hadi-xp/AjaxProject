@@ -1,15 +1,16 @@
-// this is a server with my github link that resonse a 500 status code to the client using express.
+// this is a server with my github link that resonse a 500 status code to the client using express and im going to send request to this server with XMLhttpRequest.
 
 const express = require('express');
+const config = require('config');
 const app = express();
 
+app.get('/serverError',(req,res)=>{
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET',config.get('server.host'));
+    xhr.send();
+    res.status(500).send('server error');
+});
 
-app.get('/',(req,res)=>{
-    res.status(500).send('This is a Server Error');
-})
-
-app.listen(3000,()=>{
-    console.log('Server is running on port 3000');
-})
+app.listen(3000);
 
 
