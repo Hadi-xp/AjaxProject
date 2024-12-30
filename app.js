@@ -18,13 +18,13 @@ function loadAjax(){
     xhr.open('GET','data.txt');
 
     // on load
-    xhr.onload = ()=>{
-        if(xhr.status === 200){
+    xhr.onload = function(){
+        if(this.status === 200){
             // change card text
-            card.textContent = xhr.responseText;
-        }else if(xhr.status >= 400 && xhr.status < 500){
+            card.textContent = this.responseText;
+        }else if(this.status >= 400 && this.status < 500){
             console.error('client error');
-        }else if (xhr.status >= 500){
+        }else if (this.status >= 500){
             console.error('server error');
         }
     }
@@ -32,5 +32,24 @@ function loadAjax(){
     // send the request
     xhr.send();
        
-}
+};
+
+// selecting other btns for erroes
+const btnC = document.querySelector('.Client');
+const btnS = document.querySelector('.Server');
+
+btnC.addEventListener('click',()=>{
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET','dataa.txt');
+    xhr.onload = function(){
+        if(this.status >= 400 && this.status < 500){
+            console.error('client error');
+        }
+    }
+    xhr.send();
+});
+// btnS.addEventListener('click',serverError);
+
+
+
 
