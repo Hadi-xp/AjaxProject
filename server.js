@@ -5,12 +5,12 @@ const config = require('config');
 const app = express();
 
 app.get('/serverError',(req,res)=>{
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET',config.get('server.host'));
-    xhr.send();
+    // const xhr = new XMLHttpRequest();
+    // xhr.open('GET',config.get('server.host'));
+    // xhr.send();
     res.status(500).send('server error');
 });
 
-app.listen(3000);
+app.listen(config.get('server.port'),()=>console.log(`server is running on port ${config.get('server.port')}`));
 
 
