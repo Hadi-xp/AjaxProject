@@ -4,7 +4,7 @@ const express = require('express');
 const config = require('config');
 const app = express();
 
-app.get('/serverError',(req,res)=>{
+app.get('/',(req,res)=>{
     // const xhr = new XMLHttpRequest();
     // xhr.open('GET',config.get('server.host'));
     // xhr.send();
