@@ -38,6 +38,7 @@ function loadAjax(){
 const btnC = document.querySelector('.Client');
 const btnS = document.querySelector('.Server');
 
+// this is for client error
 btnC.addEventListener('click',()=>{
     const xhr = new XMLHttpRequest();
     xhr.open('GET','dataa.txt');
@@ -48,6 +49,8 @@ btnC.addEventListener('click',()=>{
     }
     xhr.send();
 });
+
+// this is for server error
 btnS.addEventListener('click',()=>{
     const xhr = new XMLHttpRequest();
     xhr.open('GET','https://hadi-xp.github.io/AjaxProject/serverError');
