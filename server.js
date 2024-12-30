@@ -4,10 +4,10 @@ const express = require('express');
 const config = require('config');
 const app = express();
 
-app.get('/',(req,res)=>{
-    // const xhr = new XMLHttpRequest();
-    // xhr.open('GET',config.get('server.host'));
-    // xhr.send();
+app.get('/serverError',(req,res)=>{
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET',config.get('server.host'));
+    xhr.send();
     res.status(500).send('server error');
 });
 
