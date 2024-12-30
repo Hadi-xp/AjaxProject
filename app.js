@@ -42,13 +42,22 @@ btnC.addEventListener('click',()=>{
     const xhr = new XMLHttpRequest();
     xhr.open('GET','dataa.txt');
     xhr.onload = function(){
-        if(this.status >= 400 && this.status < 500){
+        if(xhr.status >= 400 && xhr.status < 500){
             console.error('client error');
         }
     }
     xhr.send();
 });
-// btnS.addEventListener('click',serverError);
+btnS.addEventListener('click',()=>{
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET','https://hadi-xp.github.io/AjaxProject/serverError');
+    xhr.onload = function(){
+        if(xhr.status >= 500){
+            console.error('server error');
+        }
+    }
+    xhr.send();
+});
 
 
 
