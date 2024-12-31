@@ -53,7 +53,7 @@ btnC.addEventListener('click',()=>{
 // this is for server error
 btnS.addEventListener('click',()=>{
     const xhr = new XMLHttpRequest();
-    xhr.open('GET','https://hadi-xp.github.io/serverError/');
+    xhr.open('GET','https://httpstat.us/500');
     xhr.onload = function(){
         if(xhr.status >= 500){
             console.error('server error');
