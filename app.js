@@ -61,7 +61,3 @@ btnS.addEventListener('click',()=>{
     }
     xhr.send();
 });
-
-
-
-
