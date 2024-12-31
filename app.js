@@ -16,10 +16,27 @@ function loadAjax(target){
     xhr.onload = function(){
         if(this.status === 200){
             // change card text
+            Swal.fire({
+                title: "Drag me!",
+                icon: "success",
+                draggable: true
+              });
             card.textContent = this.responseText;
         }else if(this.status >= 400 && this.status < 500){
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong!",
+                footer: '<a href="#">Why do I have this issue?</a>'
+              });
             console.error('client error');
         }else if (this.status >= 500){
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong!",
+                footer: '<a href="#">Why do I have this issue?</a>'
+              });
             console.error('server error');
         }
     }
