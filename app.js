@@ -1,21 +1,16 @@
 // selecting our button && card
 const btn = document.querySelector('.btn');
+const btnC = document.querySelector('.Client');
+const btnS = document.querySelector('.Server');
 const card = document.querySelector('.card-text')
-// console.log(card);
-// console.log(btn);
-
-
-
-// adding event listener
-btn.addEventListener('click',loadAjax);
 
 // creating function
-function loadAjax(){
+function loadAjax(target){
     // creating xhr object
     const xhr = new XMLHttpRequest();
 
     // open the connection
-    xhr.open('GET','data.txt');
+    xhr.open('GET',target);
 
     // on load
     xhr.onload = function(){
@@ -34,30 +29,15 @@ function loadAjax(){
        
 };
 
-// selecting other btns for erroes
-const btnC = document.querySelector('.Client');
-const btnS = document.querySelector('.Server');
 
-// this is for client error
-btnC.addEventListener('click',()=>{
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET','dataa.txt');
-    xhr.onload = function(){
-        if(xhr.status >= 400 && xhr.status < 500){
-            console.error('client error');
-        }
-    }
-    xhr.send();
-});
+// adding event listener
 
-// this is for server error
-btnS.addEventListener('click',()=>{
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET','https://httpstat.us/500');
-    xhr.onload = function(){
-        if(xhr.status >= 500){
-            console.error('server error');
-        }
-    }
-    xhr.send();
+btn.addEventListener('click',function(){
+    loadAjax('data.txt');
 });
+btnC.addEventListener('click',function(){
+    loadAjax('dataa.txt');
+});
+btnS.addEventListener('click',function(){
+    loadAjax('https://httpstat.us/500');
+})
